@@ -16,7 +16,7 @@
 	{% block favicon %}
 	<link
 		rel="shortcut icon"
-		href="{{ (favicon or "/assets/frappe/images/frappe-favicon.svg") | abs_url }}"
+		href="{{ (favicon or "/assets/theme_manager/images/sg-favicon.png") | abs_url }}"
 		type="image/x-icon"
 	>
 	{% endblock %}
@@ -65,7 +65,7 @@
 	{% include "public/icons/timeless/symbol-defs.svg" %}
 	{%- block banner -%}
 		{% include "templates/includes/banner_extension.html" ignore missing %}
-
+		
 		{% if banner_html -%}
 		{{ banner_html or "" }}
 		{%- endif %}
