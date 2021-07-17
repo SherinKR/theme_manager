@@ -8,12 +8,15 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "sherin@efeone.com"
 app_license = "MIT"
+app_logo_url = "/assets/theme_manager/images/sg-logo.png"
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/theme_manager/css/theme_manager.css"
+app_include_css = [
+	"/assets/theme_manager/scss/login.scss"
+]
 # app_include_js = "/assets/theme_manager/js/theme_manager.js"
 
 # include js, css files in header of web template
@@ -31,7 +34,21 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Issue": "public/js/issue.js",
+	"Item": "public/js/item.js",
+	"Purchase Order": "public/js/purchase_order.js",
+	"Sales Invoice": "public/js/sales_invoice.js",
+	"Sales Order": "public/js/sales_order.js"
+}
+
+base_template = "templates/base.html"
+
+website_context = {
+	"favicon": 	"/assets/theme_manager/images/sg-favicon.png",
+	"splash_image": "/assets/theme_manager/images/sg-favicon.png"
+}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -172,4 +189,3 @@ user_data_fields = [
 # auth_hooks = [
 # 	"theme_manager.auth.validate"
 # ]
-

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-theme="{{ desk_theme.lower() }}">
+	<head>
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#0089FF">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#0089FF">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#0089FF">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,
+			maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<meta name="mobile-web-app-capable" content="yes">
+		<title>ERPEaz</title>
+		<link rel="shortcut icon"
+			href="{{ favicon or "/assets/theme_manager/images/sg-favicon.png" }}" type="image/x-icon">
+		<link rel="icon"
+			href="{{ favicon or "/assets/theme_manager/images/sg-favicon.png" }}" type="image/x-icon">
+		{% for include in include_css -%}
+		<link type="text/css" rel="stylesheet" href="{{ include }}?ver={{ build_version }}">
+		{%- endfor -%}
+		<style>
+			.layout-side-section{
+				background-color: #417ABA !important;
+			}
+			.sticky-top,.navbar{
+				background-color: #09bd4f !important;
+				background: #09bd4f !important;
+			}
+			.widget-group-title, .widget-head, .widget, .widget-head, .widget-title{
+				color: #417ABA !important;
+			}
+			.indicator-pill-right.yellow .indicator-pill-round.yellow, .indicator-pill.yellow {
+			  background: #417ABA !important;
+			  color: #ffffff !important;
+			}
+			.indicator-pill-right.yellow .indicator-pill-round.yellow:after, .indicator-pill-right.yellow .indicator-pill-round.yellow:before, .indicator-pill.yellow:after, .indicator-pill.yellow:before{
+			  background: #ffffff !important;
+			}
+			.desk-sidebar .standard-sidebar-label{
+				color: #ffffff !important;
+			}
+			.desk-sidebar .standard-sidebar-item, .search-dialog .search-results .search-sidebar .standard-sidebar-item, .standard-sidebar .standard-sidebar-item{
+				color: #ffffff !important;
+			}
+			.standard-sidebar-item.selected, .standard-sidebar-item.selected, .standard-sidebar-item.selected{
+			  color: #417ABA !important;
+			}
+			.shortcut-widget-box:hover{
+				background-color: #09bd4f !important;
+				color: #ffffff !important;
+				align-self: center !important;
+				text-decoration-color: #ffffff !important;
+			}
+			.shortcut-widget-box .widget-head {
+				margin-top: var(--margin-xs);
+				margin-bottom: 5px;
+				color: #ffffff !important;
+				align-self: center !important;
+			}
+			a.nav-link{
+				color: #ffffff !important;
+			}
+		</style>
+	</head>
+	<body>
+		{% include "public/icons/timeless/symbol-defs.svg" %}
+		<div class="centered splash">
+			<img src="{{ splash_image or "/assets/theme_manager/images/sg-favicon.png" }}"
+				style="max-width: 100px; max-height: 100px;">
+		</div>
+		<div class="main-section">
+			<header></header>
+			<div id="body"></div>
+			<footer></footer>
+		</div>
+
+		<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		window._version_number = "{{ build_version }}";
+		// browser support
+		window.app = true;
+		window.dev_server = {{ dev_server }};
+
+		if(!window.frappe) window.frappe = {};
+
+		frappe.boot = {{ boot }};
+
+		frappe.csrf_token = "{{ csrf_token }}";
+
+		</script>
+
+		{% for include in include_js %}
+		<script type="text/javascript" src="{{ include }}?ver={{ build_version }}"></script>
+		{% endfor %}
+		{% include "templates/includes/app_analytics/google_analytics.html" %}
+		{% include "templates/includes/app_analytics/mixpanel_analytics.html" %}
+
+		{% for sound in (sounds or []) %}
+		<audio preload="auto" id="sound-{{ sound.name }}" volume={{ sound.volume or 1 }}>
+			<source src="{{ sound.src }}"></source>
+		</audio>
+		{% endfor %}
+	</body>
+</html>

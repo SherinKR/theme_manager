@@ -1,0 +1,10 @@
+.layout-side-section{
+  background-color: #417ABA !important;
+}
+.sticky-top,.navbar{
+  background-color: #09bd4f !important;
+  background: #09bd4f !important;
+}
+.widget-group-title, .widget-head, .widget, .widget-head, .widget-title{
+  color: #417ABA !important;
+}
