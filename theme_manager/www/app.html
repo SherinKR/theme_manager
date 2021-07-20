@@ -24,8 +24,16 @@
 		<link type="text/css" rel="stylesheet" href="{{ include }}?ver={{ build_version }}">
 		{%- endfor -%}
 		<style>
+			::-webkit-scrollbar-thumb {
+				background: #277ac3 !important;
+				border-radius: 5px !important;
+			}
 			.layout-side-section{
 				background-color: #417ABA !important;
+				border-radius: 15px !important;
+				scroll-behavior: auto;
+				overflow-y: scroll;
+				scrollbar-color: green;
 			}
 			.sticky-top,.navbar{
 				background-color: #09bd4f !important;
